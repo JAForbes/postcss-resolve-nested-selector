@@ -1,5 +1,6 @@
 module.exports = function resolveNestedSelector(selector, node) {
   var parent = node.parent;
+  if( !parent ) return [];
   var parentIsNestAtRule = parent.type === 'atrule' && parent.name === 'nest';
 
   if (parent.type === 'root') return [selector];
